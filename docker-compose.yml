@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: 'CinemaVersion1'
+    command:
+      - "python3 manage.py runserver"
+    network_mode: host

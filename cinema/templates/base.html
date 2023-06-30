@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+	{% block styles %}
+	{% endblock %}
+	<title>Logo</title>
+</head>
+<body>
+	<div class="page">
+		<header>
+			<div class="container">
+				<h4 class="logo"><a href="{{BASE_DIR}}/{% if logged_in %}{{user.id}}{% endif %}">Viewell</a></h4>
+				<div class="menu">
+					<div class="show_menu" id="menu_without_search">
+						<ul>
+							<li class="home"><a href="{{BASE_DIR}}/{% if logged_in %}{{user.id}}{% endif %}">Главная</a></li>
+							<li class="anime"><a href="{{BASE_DIR}}/{% if logged_in %}{{user.id}}/{% endif %}animes">Аниме</a></li>
+							<li class="film"><a href="{{BASE_DIR}}/{% if logged_in %}{{user.id}}/{% endif %}films">Фильмы</a></li>
+							<li class="series"><a href="{{BASE_DIR}}/{% if logged_in %}{{user.id}}/{% endif %}serials">Сериалы</a></li>
+						</ul>
+					</div>
+					<form class="bar_container" action="{{BASE_DIR}}/{% if logged_in %}{{user.id}}/{% endif %}search" method="post">
+						{% csrf_token %}
+						<input type="text" class="search_bar hide" name="search_request" id="search_bar" placeholder="Название фильма, сериала, аниме и т.д."/>
+						<input type="submit" value="Submit">
+					</form>
+					<script>
+						document.getElementById('search_bar')
+						.addEventListener('keyup', function(event) {
+							if (event.code === 'Enter')
+							{
+								event.preventDefault();
+								document.querySelector('.bar_container').submit();
+							}
+						});
+					</script>
+					<div class="search" id="search" onclick="ShowHide_Menu(); OpenClose_SearchBar();"><img src="{% static 'img/search.svg' %}" alt="search"></div>
+				</div>
+				<div class="profile">
+					{% if logged_in %}
+						<a href="http://127.0.0.1:8000/{{user.pk}}/profile"><img src="{{BASE_DIR}}/media/{{user.ava}}" alt="profile"></a>
+					{% else %}
+						<img src="{% static 'img/incognito.png' %}" alt="profile">
+					{% endif %}
+
+					<div class="login" {% if logged_in %} style="display: none" {% endif %}>
+						<div class="login-container">
+							<a href="{{BASE_DIR}}/log_in"><img src="{% static 'img/login.svg' %}" alt="login"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="main">
+			<div class="left-border"></div>
+			<div class="right-border"></div>
+			<div class="main-container">
+				{% block main %}
+       			{% endblock %}
+			</div>
+		</div>
+		<footer></footer>
+		<script src="{% static 'JS/search-bar.js' %}"></script>
+		{% block scripts %}
+		{% endblock %}
+	</div>
+</body>
+</html>

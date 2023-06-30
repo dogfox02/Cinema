@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+
+<link rel="stylesheet" href="{% static 'CSS/cardstyle.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/list_base.css' %}">
+
+{% endblock %}
+
+{% block main %}
+{% for movie in movies %}
+<div class="razmer">
+		<div class="cardfield">
+			<div class="cardimg">
+				<div class="rating">{{movie.movieTotalScore}}</div>
+				<img src="{{BASE_DIR}}/media/{{ movie.image }}">
+			</div>
+			<div class="cardname">
+				<!--<p>{{ movie.name }}</p> -->
+			</div>
+			<div class="carddesc">
+				<h4>{{ movie.name }}</h4>
+				<p class="description">{{movie.description}}</p>
+				<div class="watchbutton">
+					<a href="movie/{{movie.pk}}">Смотреть</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endfor %}
+{% endblock %}

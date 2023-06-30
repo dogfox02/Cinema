@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.login_field_container{
+    height: 100%;
+    width: 100%;
+}
+
+.login_field {
+    position: absolute;
+    height: 60%;
+    width: 30%;
+    left: 35%;
+    top: 20%;
+}
+
+.login_text {
+	font-size: 35px;
+	line-height: 2;
+    padding: 15%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.login_field_container .buttons {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.login_field_container button{
+    cursor: pointer;
+    font-size: 35px;
+    color: white;
+    background-color: #cd00d1;
+    border-style: none;
+	border-radius: 20px;
+	padding: 10px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.text_before_register {
+    font-size: 20px;
+    color: white;
+}
+
+.button-register {
+    text-decoration: none;
+    color: white;
+    background-color: #0e1627;;
+	border-radius: 20px;
+	padding: 7.5px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.login_field_container input {
+    width: 100%;
+    color: white;
+    padding-left: 1%;
+    font-size: 35px;
+    outline: none;
+    border-style: solid;
+    border-color: pink;
+    background-color: #14396C;
+    border-radius: 10px;
+}

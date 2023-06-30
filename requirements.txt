@@ -1,0 +1,5 @@
+asgiref==3.5.2
+bencodepy==0.9.5
+Django==2.1.7
+generics==3.5.0
+Pillow==9.2.0

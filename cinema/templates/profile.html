@@ -1,0 +1,14 @@
+{% extends 'base_home.html' %}
+
+{% block main %}
+<h2>Ваш логин:</h2>
+<p>{{user.login}}</p>
+<h2>Ваша почта:</h2>
+<p>{{user.email}}</p>
+<h2>Ваши оценки медиа:</h2>
+<ul>
+{% for i in movies %}
+    <li>{{i}}</li>
+{% endfor %}
+</ul>
+{% endblock %}

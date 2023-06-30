@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+}
+
+body {
+	background-color: #222D48;
+}
+
+.razmer{
+	overflow: hidden;
+	width: 247px;
+	height: 420px;
+	margin-bottom: 2%;
+}
+
+
+.cardfield{
+	position: static;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+.rating {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background-color: grey;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-bottom: auto;
+    text-align: center;
+    line-height: 2.5;
+}
+
+.rating-area {
+	overflow: hidden;
+	width: 265px;
+	margin: 0 auto;
+}
+.rating-area:not(:checked) > input {
+	display: none;
+}
+.rating-area:not(:checked) > label {
+	float: right;
+	width: 42px;
+	padding: 0;
+	cursor: pointer;
+	font-size: 32px;
+	line-height: 32px;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+	content: '★';
+}
+.rating-area > input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+	position: relative;
+}
+
+.cardimg{
+	width: 100%;
+	height: 100%;
+}
+.cardimg img{
+	object-fit: cover;
+	width: 100%;
+	height: 100%; /*Исправлена высота, мб косяк*/
+}
+
+/*.cardname{
+    z-index: 10;
+    transform: translateY(-100%);
+	position: relative;
+	margin-top: 0%; 
+	background-color: rgba(0, 0, 0, 0.8);
+	text-align: center;
+	transition: 0.25s;
+}
+*/
+
+.carddesc{
+	transform: translateY(-5%);
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	position: relative;
+	cursor: pointer;
+	left: 0%;
+	transition: 0.25s;
+	justify-content: center;
+	align-items: flex-start;
+	text-align: center;
+
+}
+.razmer .cardfield .carddesc .description{
+	font-size: small;
+}	
+
+
+.watchbutton{
+	position: absolute;
+	top: 85%;
+	left: 25%;
+	right: 25%;
+	text-align: center;
+}
+
+.watchbutton a{
+	text-decoration: none;
+	color: white;
+	border-radius: 50px;
+	padding: 5%;
+	padding-left: 15%;
+	padding-right: 15%;
+	transition: 0.15s;
+	background: #cd00d1;
+
+}	
+
+.cardfield:hover .carddesc{
+	transform: translateY(-100%);
+	z-index: 20;
+}
+
+/*.cardfield:hover .cardname{
+	/*transform: translateY(-2105%);
+	top: 0;
+	z-index: 20;
+}
+*/
+.watchbutton:hover {
+	 font-size: 13px;
+}

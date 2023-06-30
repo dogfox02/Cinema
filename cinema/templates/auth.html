@@ -1,0 +1,23 @@
+{% extends 'base_home.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'CSS/auth.css' %}">
+{% endblock %}
+
+{% block main %}
+
+<div class="auth_field_container">
+    <form enctype="multipart/form-data" method="POST"  class="auth_field">
+      <fieldset class="auth_text">
+        <legend>Регистрация</legend>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="buttons">
+            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+            <div class="text_before_login">Или <br> <a class="button-login" href="http://127.0.0.1:8000/log_in">Войти</a></div>
+        </div>
+      </fieldset>
+    </form>
+</div>
+{% endblock %}

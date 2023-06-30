@@ -1,0 +1,24 @@
+{% extends 'base_home.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'CSS/log_in.css' %}">
+{% endblock %}
+
+{% block main %}
+
+<div class="login_field_container">
+    <form method="POST"  class="login_field">
+      <fieldset class="login_text">
+        <legend>Вход</legend>
+        {% csrf_token %}
+        {{ log_in.as_p }}
+        <div class="buttons">
+          <button type="submit" class="btn btn-primary">Войти</button><br>
+          <div class="text_before_register">Или <br> <a class="button-register" href="http://127.0.0.1:8000/reg_form">Зарегистрироваться</a></div>
+        </div>
+      </fieldset>
+    </form>
+</div>
+
+{% endblock %}

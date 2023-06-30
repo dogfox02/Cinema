@@ -1,0 +1,39 @@
+
+{% extends 'base_home.html' %}
+{% load static %}
+
+{% block main %}
+
+<div class="main" style="background:url({% static 'img/background.jpg' %})">
+			<div class="left-border"></div>
+			<div class="right-border"></div>
+			<div class="main-container">
+				<div class="cloud"> <img src="{% static 'img/cloud.png' %}" alt="cloud"></div>
+				<div class="text-zone">
+					<p>Смотри онлайн все,<br>что душа<br>пожелает!</p>
+					<a class="button" href="{% if logged_in %}{{user.id}}{% endif %}/look">Смотреть</a>
+				</div>
+				<div class="carousel">
+						<div class="button">
+							<div class="carousel-button left-button"><img src="{% static 'img/Left-arrow.svg' %}" alt="<"></div>
+							<div class="carousel-button right-button"><img src="{% static 'img/Right-arrow.svg' %}" alt=">"></div>
+						</div>
+						<div class="images">
+							<a class="carousel-item fade" href=""><img src="{% static 'img/Evangelion.jpg' %}" alt="Evangelion"></a>
+							<a class="carousel-item fade" href=""><img src="{% static 'img/dr strange.jpg' %}" alt="Dr. Strange"></a>
+							<a class="carousel-item fade" href=""><img src="{% static 'img/the boys.jpg' %}" alt="The Boys"></a>
+							<div class="popular">
+								<h4>Самое популярное</h4>
+							</div>
+						</div>
+				</div>
+			</div>
+</div>
+
+{% endblock %}
+
+{% block scripts%}
+
+<script src="{% static 'JS/script.js' %}"></script>
+
+{% endblock %}
